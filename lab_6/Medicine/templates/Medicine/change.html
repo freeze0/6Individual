@@ -1,0 +1,28 @@
+{% extends 'Medicine/base.html' %}
+
+{% block title %}
+Изменение данных
+{% endblock %}
+
+
+{% block content %}
+<form method="post" class="container text-light mt-4">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Фамилия</label>
+        {{ form.name }}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Имя</label>
+        {{ form.surname }}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Причина</label>
+        {{ form.reason }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Изменить</button>
+</form>
+{% endblock %}

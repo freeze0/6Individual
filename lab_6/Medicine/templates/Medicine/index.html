@@ -1,0 +1,33 @@
+{% extends 'Medicine/base.html' %}
+
+{% block title %}
+Клиника - Главная страница
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        {% for i in humans %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> {{i.name}} {{i.surname}}</h3>
+                <p> Причина: {{i.reason}}</p>
+                <a href="{% url 'change' i.id_human %}" class="btn btn-outline-dark">Редактировать</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container">
+        {% for i in doctors %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> {{i.name}} {{i.surname}}</h3>
+                <p> Специальность: {{i.specialty}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container">
+        {% for i in apps %}
+            <div class="alert alert-secondary shadow-lg  mt-4">
+                <h3> Запись: {{i.id_doctor}} {{i.id_human}} {{i.app_time}}</h3>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
